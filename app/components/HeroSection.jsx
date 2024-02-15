@@ -2,6 +2,7 @@
 import React, { useLayoutEffect, useRef } from "react";
 import Image from "next/image";
 import { TypeAnimation } from "react-type-animation";
+import Link from "next/link";
 
 const HeroSection = () => {
   return (
@@ -35,17 +36,22 @@ const HeroSection = () => {
             />
           </h1>
           <p className="text-[#ADB7BE] text-base sm:text-lg mb-6 lg:text-xl">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Repudiandae, unde. Quod dolore fugiat, minima aspernatur.
+            A skilled computer programmer who handles both front-end and
+            back-end coding. Passionate full stack developer creating seamless
+            digital experiences with a commitment to continual growth.
           </p>
           <div>
             <button className="px-6 py-3 w-full sm:w-fit rounded-full mr-4 bg-secondary hover:bg-tertiary text-white">
               Hire me!
             </button>
             <button className="px-1 py-1 w-full sm:w-fit rounded-full bg-secondary hover:bg-slate-800 text-white mt-3">
-              <span className="block bg-[#121212] hover:bg-slate-800 rounded-full px-5 py-2">
+              <Link
+                href="https://drive.google.com/file/d/1pJSdclkB6wB0HCh22kNYeK51P5Nw6nic/view?usp=sharing"
+                passHref
+                className="block bg-[#121212] hover:bg-slate-800 rounded-full px-5 py-2"
+              >
                 Download CV
-              </span>
+              </Link>
             </button>
           </div>
         </div>
@@ -61,7 +67,7 @@ const HeroSection = () => {
             />
           </div>
         </div>
-{/*         <div
+        {/*         <div
           style={{
             position: "absolute",
             top: 0,

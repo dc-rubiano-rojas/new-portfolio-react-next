@@ -53,7 +53,8 @@ const projectsData = [
   {
     id: 6,
     title: "Plazas de mercado Distritales",
-    description: "Marketplace to create an order in a market",
+    description:
+      "Tech lead in the creation and deployment of an administration and E-Commerce platform tailored to local markets. Collaborating closely with app development team, including project and product managers, to ensure security and seamless integration with multiple APIs. Provides guidance on code development and reuse",
     image: "/images/projects/6.png",
     tag: ["All", "Web"],
     gitUrl: "/",
@@ -73,10 +74,19 @@ const ProjectSection = () => {
   );
 
   return (
-    <>
+    <section className="relative">
+      <div
+        className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))]
+       from-secondary to-transparent 
+       rounded-full h-60 w-60 z-0
+       blur-lg absolute top-4/4 -right-2 transform
+       -translate-x-1/2 -translate-1/2"
+      ></div>
+
       <h2 className="text-center text-4xl font-bold text-white mt-4 mb-4">
         Projects
       </h2>
+
       <div className="text-white flex flex-row justify-center items-center gap-2 py-6">
         <ProjectTag
           onClick={handleTagChange}
@@ -94,6 +104,7 @@ const ProjectSection = () => {
           isSelected={tag === "Mobile"}
         />
       </div>
+
       <div className="grid md:grid-cols-3 gap-8 md:gap-12">
         {filteredProjects.map((project) => (
           <ProjectCard
@@ -106,7 +117,7 @@ const ProjectSection = () => {
           />
         ))}
       </div>
-    </>
+    </section>
   );
 };
 

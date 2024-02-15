@@ -45,7 +45,7 @@ const EmailSection = () => {
       <div
         className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))]
        from-secondary to-transparent 
-       rounded-full h-80 w-80 z-0
+       rounded-full h-60 w-60 z-0
        blur-lg absolute top-3/4 -left-4 transform
        -translate-x-1/2 -translate-1/2"
       ></div>
@@ -55,10 +55,10 @@ const EmailSection = () => {
 
         <p className="text-[#ADB7BE] mb-4 max-w-md">
           {" "}
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta ut
-          quaerat deserunt vel vitae qui rem, consequatur sint facere ducimus
-          totam illum reprehenderit odit sequi beatae, quia possimus animi
-          repellat.
+          I'm always eager to connect with fellow professionals, enthusiasts,
+          and innovators in the tech community. Whether you're seeking advice,
+          looking to collaborate on a project, or simply want to discuss the
+          latest trends in technology, I'd love to hear from you.
         </p>
 
         <div className="socials flex flex-row gap-2">
@@ -156,6 +156,7 @@ const EmailSection = () => {
           {emailSubmitted && <p className="text-green-500 text-sm mt-2"></p>}
         </form>
       </div>
+
     </section>
   );
 };

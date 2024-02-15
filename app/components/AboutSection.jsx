@@ -11,8 +11,11 @@ const TAB_DATA = [
     content: (
       <ul className="list-disc pl-2">
         <li>Javascript</li>
+        <li>Typescript</li>
         <li>NodeJs</li>
+        <li>NestJs</li>
         <li>React</li>
+        <li>NextJs</li>
         <li>React-native</li>
       </ul>
     ),
@@ -22,7 +25,7 @@ const TAB_DATA = [
     id: "education",
     content: (
       <ul className="list-disc pl-2">
-        <li>Specialization in Software Engineer</li>
+        <li>Specialization in Software Engineering</li>
         <li>Bachelor Degree in Sound Engineer</li>
       </ul>
     ),
@@ -32,8 +35,10 @@ const TAB_DATA = [
     id: "certifications",
     content: (
       <ul className="list-disc pl-2">
-        <li>Devops in AWS</li>
-        <li>Devops in AWS</li>
+        <li>Devops with AWS</li>
+        <li>Ethereum Developer Professional</li>
+        <li>Master In Nodejs</li>
+        <li>Certification MTA software Development Fundamentals</li>
       </ul>
     ),
   },
@@ -55,10 +60,11 @@ const AboutSection = () => {
         <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
           <h2 className="text-4xl font-bold text-white mb-4">About me</h2>
           <p className="text-base md:text-lg">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis
-            dolores unde officiis molestias obcaecati mollitia voluptate atque
-            pariatur placeat earum quas eligendi ratione voluptates quos, ipsam
-            voluptatibus ut quis necessitatibus!
+            I'm a dedicated and efficient fullstack developer,
+            experienced in crafting and maintaining both web and mobile
+            applications. My skill set spans front-end and back-end development,
+            allowing me to seamlessly merge usability and user experience with
+            technical expertise to create captivating digital experiences.
           </p>
           <div className="flex flex-row justify-start mt-8">
             <TabButton
