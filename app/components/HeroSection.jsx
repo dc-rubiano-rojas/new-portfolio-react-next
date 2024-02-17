@@ -14,7 +14,7 @@ const HeroSection = () => {
               id="intro-slider"
               className="text-transparent bg-clip-text bg-gradient-to-t from-primary to-tertiary"
             >
-              Hello, I am {}{" "}
+              Hello, I{"'"}m {}{" "}
             </span>
             <br></br>
             <TypeAnimation
