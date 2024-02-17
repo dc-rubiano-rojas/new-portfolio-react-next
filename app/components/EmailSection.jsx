@@ -54,14 +54,14 @@ const EmailSection = () => {
       ></div>
 
       <div className="z-10">
-        <h5 className="text-xl font-bold text-white my-2">Let's Connect</h5>
+        <h5 className="text-xl font-bold text-white my-2">Lets Connect</h5>
 
         <p className="text-[#ADB7BE] mb-4 max-w-md">
           {" "}
-          I'm always eager to connect with fellow professionals, enthusiasts,
-          and innovators in the tech community. Whether you're seeking advice,
+          I am always eager to connect with fellow professionals, enthusiasts,
+          and innovators in the tech community. Whether you are seeking advice,
           looking to collaborate on a project, or simply want to discuss the
-          latest trends in technology, I'd love to hear from you.
+          latest trends in technology, I would love to hear from you.
         </p>
 
         <div className="socials flex flex-row gap-2">

@@ -56,11 +56,11 @@ const AboutSection = () => {
   return (
     <section className="text-white" id="about">
       <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px-16">
-        <Image src="/images/about-me-section.png" width={500} height={500} />
+        <Image src="/images/about-me-section.png" width={500} height={500} alt="about-me" />
         <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
           <h2 className="text-4xl font-bold text-white mb-4">About me</h2>
           <p className="text-base md:text-lg">
-            I'm a dedicated and efficient fullstack developer, experienced in
+            I am a dedicated and efficient fullstack developer, experienced in
             crafting and maintaining both web and mobile applications. My skill
             set spans front-end and back-end development, allowing me to
             seamlessly merge usability and user experience with technical

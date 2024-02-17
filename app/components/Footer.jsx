@@ -11,7 +11,7 @@ const Footer = () => {
     text-white"
     >
       <div className="container p-12 flex justify-between">
-        <Image src="/images/dc-logo.png" width={68} height={68} />
+        <Image src="/images/dc-logo.png" width={68} height={68} alt='logo'/>
 
         <p className="text-slate-600">All rights reserved.</p>
       </div>
