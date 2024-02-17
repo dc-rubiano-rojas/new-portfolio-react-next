@@ -11,31 +11,31 @@ const projectsData = [
     description: "Landing page for restaurant",
     image: "/images/projects/1.png",
     tag: ["All", "Web"],
-    gitUrl: "/",
-    previewUrl: "/",
+    gitUrl: "https://github.com/dc-rubiano-rojas/REACT-landing",
+    previewUrl: "https://dc-landing-page-clients.com/",
   },
   {
     id: 2,
     title: "My Pet Vaccines",
-    description: "Records to your pet vaccines",
+    description: "My Pet Vaccines is an app dedicated to organizing and managing your pet's vaccination records.",
     image: "/images/projects/2.png",
     tag: ["All", "Mobile"],
-    gitUrl: "/",
+    gitUrl: "https://github.com/dc-rubiano-rojas/my-pet-vaccines",
     previewUrl: "/",
   },
   {
     id: 3,
     title: "Ecommerce",
-    description: "Ecommerce with NextJS and Sanity to manage content",
+    description: "I've created an advanced ecommerce platform leveraging Next.js and Sanity for seamless content management",
     image: "/images/projects/3.png",
     tag: ["All", "Web"],
     gitUrl: "/",
-    previewUrl: "/",
+    previewUrl: "https://ecomerce-nextjs.vercel.app/",
   },
   {
     id: 4,
     title: "Walmart Picking App",
-    description: "App to pick to products of an order",
+    description: "I develop and support web and mobile applications using React and React Native technologies. I utilize Apache Kafka for event-based architecture to process orders efficiently. Additionally, I manage releases to production, ensuring applications meet stakeholders' needs and add value.",
     image: "/images/projects/4.png",
     tag: ["All", "Mobile"],
     gitUrl: "/",
@@ -44,7 +44,7 @@ const projectsData = [
   {
     id: 5,
     title: "Av villas",
-    description: "Web app to request for a credit card",
+    description: "Development and maintenance of a web application to request credit cards, through services in Amazon Web Services",
     image: "/images/projects/5.png",
     tag: ["All", "Mobile"],
     gitUrl: "/",
@@ -54,7 +54,7 @@ const projectsData = [
     id: 6,
     title: "Plazas de mercado Distritales",
     description:
-      "Tech lead in the creation and deployment of an administration and E-Commerce platform tailored to local markets. Collaborating closely with app development team, including project and product managers, to ensure security and seamless integration with multiple APIs. Provides guidance on code development and reuse",
+      "Tech lead developing and implementing an administration and an E-Commerce platform to locals markets. Work closely with app development team including project and product manager.",
     image: "/images/projects/6.png",
     tag: ["All", "Web"],
     gitUrl: "/",
@@ -69,20 +69,12 @@ const ProjectSection = () => {
     setTag(newTag);
   };
 
-  const filteredProjects = projectsData.filter((project) =>
-    project.tag.includes(tag)
-  );
+  const filteredProjects = projectsData.filter((project) => {
+    return project.tag.includes(tag);
+  });
 
   return (
-    <section className="relative">
-      <div
-        className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))]
-       from-secondary to-transparent 
-       rounded-full h-60 w-60 z-0
-       blur-lg absolute top-4/4 -right-2 transform
-       -translate-x-1/2 -translate-1/2"
-      ></div>
-
+    <section id="projects">
       <h2 className="text-center text-4xl font-bold text-white mt-4 mb-4">
         Projects
       </h2>

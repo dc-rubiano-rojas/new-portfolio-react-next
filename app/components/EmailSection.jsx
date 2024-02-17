@@ -41,7 +41,10 @@ const EmailSection = () => {
   };
 
   return (
-    <section className="grid md:grid-cols-2 my-12 md:my-12 py-24 gap-4 relative">
+    <section
+      id="contact"
+      className="grid md:grid-cols-2 my-12 md:my-12 py-24 gap-4 relative"
+    >
       <div
         className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))]
        from-secondary to-transparent 
@@ -63,13 +66,23 @@ const EmailSection = () => {
 
         <div className="socials flex flex-row gap-2">
           <Link href="https://github.com/dc-rubiano-rojas" passHref>
-            <Image src={GithubIcon} alt="Github Icon" />
+            <Image
+              src={GithubIcon}
+              alt="Github Icon"
+              width="90"
+              height="90"
+            />
           </Link>
           <Link
             href="https://www.linkedin.com/in/daniel-c-rubiano-rojas/"
             passHref
           >
-            <Image src={LinkedinIcon} alt="Linkedin Icon" />
+            <Image
+              src={LinkedinIcon}
+              alt="Linkedin Icon"
+              width="90"
+              height="90"
+            />
           </Link>
         </div>
       </div>
@@ -156,7 +169,6 @@ const EmailSection = () => {
           {emailSubmitted && <p className="text-green-500 text-sm mt-2"></p>}
         </form>
       </div>
-
     </section>
   );
 };
