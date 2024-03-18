@@ -5,6 +5,7 @@ import ProjectSection from "../app/components/ProjectSection";
 import EmailSection from "../app/components/EmailSection";
 import Footer from "../app/components/Footer";
 import AchivmentSection from "../app/components/AchivmentSection";
+import AdSense from "../app/components/AdSense";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <div className="container mx-auto px-12 py-4 mt-20">
         <HeroSection />
         <AchivmentSection />
+        <AdSense/>
         <AboutSection />
         <ProjectSection />
         <EmailSection />
