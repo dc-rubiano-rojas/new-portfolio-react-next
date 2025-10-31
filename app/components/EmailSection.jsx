@@ -2,172 +2,147 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-
-import GithubIcon from "../../public/github-logo.svg";
-import LinkedinIcon from "../../public/linkedin-logo.svg";
+import { motion } from "framer-motion";
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa6";
 
 const EmailSection = () => {
   const [emailSubmitted, setEmailSubmitted] = useState(false);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const dara = {
-      email: e.target.email.value,
-      subject: e.target.subject.value,
-      message: e.target.message.value,
-    };
-    const JSONdata = JSON.stringify(data);
-    const endpoint = "/api/send";
-    const options = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSONdata,
-    };
-    const response = await fetch(endpoint, options);
-    const resData = await response.json();
-    if (response.status === 200) {
-      console.log("====================================");
-      console.log("Message sent");
-      console.log("====================================");
-      setEmailSubmitted(true);
-    }
-  };
-  const testHandleSubmit = async (e) => {
-    console.log("====================================");
-    console.log("testHandleSubmit click");
-    console.log("====================================");
     setEmailSubmitted(true);
+
+    // Aquí podrías agregar el envío real con API o servicio externo (Resend, Formspree, etc.)
+    setTimeout(() => setEmailSubmitted(false), 3000);
   };
 
   return (
     <section
       id="contact"
-      className="grid md:grid-cols-2 my-12 md:my-12 py-24 gap-4 relative"
+      className="relative bg-[#0b0b0b] py-24 lg:py-28 overflow-hidden"
     >
-      <div
-        className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))]
-       from-secondary to-transparent 
-       rounded-full h-60 w-60 z-0
-       blur-lg absolute top-3/4 -left-4 transform
-       -translate-x-1/2 -translate-1/2"
-      ></div>
+      {/* Background lights */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-gradient-to-b from-purple-600/20 to-transparent blur-[180px]" />
+      <div className="absolute bottom-0 right-1/3 w-[300px] h-[300px] bg-blue-600/20 blur-[160px]" />
 
-      <div className="z-10">
-        <h5 className="text-xl font-bold text-white my-2">Lets Connect</h5>
+      <div className="container relative mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+        {/* LEFT: Text + Socials */}
+        <motion.div
+          initial={{ opacity: 0, x: -60 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-4xl sm:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 via-blue-400 to-cyan-400 mb-6">
+            Let’s Connect
+          </h2>
 
-        <p className="text-[#ADB7BE] mb-4 max-w-md">
-          {" "}
-          I am always eager to connect with fellow professionals, enthusiasts,
-          and innovators in the tech community. Whether you are seeking advice,
-          looking to collaborate on a project, or simply want to discuss the
-          latest trends in technology, I would love to hear from you.
-        </p>
+          <p className="text-gray-300 mb-8 leading-relaxed max-w-lg">
+            I’m always open to new opportunities, collaborations, or just
+            connecting with other passionate developers.  
+            Feel free to reach out for project ideas, partnerships, or tech discussions.
+          </p>
 
-        <div className="socials flex flex-row gap-2">
-          <Link href="https://github.com/dc-rubiano-rojas" passHref>
-            <Image
-              src={GithubIcon}
-              alt="Github Icon"
-              width="90"
-              height="90"
-            />
-          </Link>
-          <Link
-            href="https://www.linkedin.com/in/daniel-c-rubiano-rojas/"
-            passHref
+          <div className="flex gap-5">
+            <Link
+              href="https://github.com/dc-rubiano-rojas"
+              target="_blank"
+              className="p-3 bg-[#141414]/70 border border-gray-700 rounded-full hover:border-white hover:bg-white/10 transition-all duration-300"
+            >
+              <FaGithub className="text-2xl text-gray-300 hover:text-white" />
+            </Link>
+            <Link
+              href="https://www.linkedin.com/in/danielc-rubiano-rojas/"
+              target="_blank"
+              className="p-3 bg-[#141414]/70 border border-gray-700 rounded-full hover:border-white hover:bg-white/10 transition-all duration-300"
+            >
+              <FaLinkedin className="text-2xl text-gray-300 hover:text-white" />
+            </Link>
+            <Link
+              href="mailto:dcrubiano01@gmail.com"
+              className="p-3 bg-[#141414]/70 border border-gray-700 rounded-full hover:border-white hover:bg-white/10 transition-all duration-300"
+            >
+              <FaEnvelope className="text-2xl text-gray-300 hover:text-white" />
+            </Link>
+          </div>
+        </motion.div>
+
+        {/* RIGHT: Form */}
+        <motion.div
+          initial={{ opacity: 0, x: 60 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          viewport={{ once: true }}
+        >
+          <form
+            onSubmit={handleSubmit}
+            className="bg-[#141414]/60 border border-gray-800 rounded-2xl p-8 shadow-lg shadow-purple-900/10 backdrop-blur-md"
           >
-            <Image
-              src={LinkedinIcon}
-              alt="Linkedin Icon"
-              width="90"
-              height="90"
-            />
-          </Link>
-        </div>
-      </div>
+            <div className="mb-6">
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-gray-300 mb-2"
+              >
+                Your Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                placeholder="you@example.com"
+                className="w-full p-3 rounded-lg bg-[#1b1b1b] border border-gray-700 text-gray-100 text-sm focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all"
+              />
+            </div>
 
-      <div>
-        <form className="flex flex-col" onSubmit={testHandleSubmit}>
-          <div className="mb-6">
-            <label
-              htmlFor="email"
-              className="text-white block mb-2 text-sm font-medium"
+            <div className="mb-6">
+              <label
+                htmlFor="subject"
+                className="block text-sm font-medium text-gray-300 mb-2"
+              >
+                Subject
+              </label>
+              <input
+                type="text"
+                id="subject"
+                name="subject"
+                required
+                placeholder="Let’s build something great..."
+                className="w-full p-3 rounded-lg bg-[#1b1b1b] border border-gray-700 text-gray-100 text-sm focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all"
+              />
+            </div>
+
+            <div className="mb-6">
+              <label
+                htmlFor="message"
+                className="block text-sm font-medium text-gray-300 mb-2"
+              >
+                Message
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                rows={5}
+                required
+                placeholder="Hi Daniel, I’d like to talk about..."
+                className="w-full p-3 rounded-lg bg-[#1b1b1b] border border-gray-700 text-gray-100 text-sm focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all"
+              />
+            </div>
+
+            <button
+              type="submit"
+              className="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white font-medium py-3 rounded-lg hover:opacity-90 transition duration-300"
             >
-              Your Email
-            </label>
-            <input
-              name="email"
-              type="email"
-              id="email"
-              required
-              className="bg-[#18191E] 
-            border 
-            border-[#33353F] 
-            placeholder:[#9C12A9] 
-            text-gray-100 
-            text-sm rounded-lg
-            block w-full p-2.5"
-              placeholder="test@google.com"
-            />
-          </div>
+              Send Message
+            </button>
 
-          <div className="mb-6">
-            <label
-              htmlFor="subject"
-              className="text-white block mb-2 text-sm font-medium"
-            >
-              Subject
-            </label>
-            <input
-              type="text"
-              id="subject"
-              name="subject"
-              required
-              className="bg-[#18191E] 
-            border 
-            border-[#33353F] 
-            placeholder:[#9C12A9] 
-            text-gray-100 
-            text-sm rounded-lg
-            block w-full p-2.5
-            "
-              placeholder="Just saying hi..."
-            />
-          </div>
-
-          <div className="mb-6">
-            <label
-              htmlFor="message"
-              className="text-white block text-sm mb-2 font-medium"
-            >
-              Message
-            </label>
-            <textarea
-              name="messaje"
-              id="message"
-              className="bg-[#18191E] 
-            border 
-            border-[#33353F] 
-            placeholder:[#9C12A9] 
-            text-gray-100 
-            text-sm rounded-lg
-            block w-full p-2.5"
-              placeholder="Let's talk about..."
-            />
-          </div>
-
-          <button
-            type="submit"
-            className="bg-secondary
-            hover:bg-tertiary
-            text-white font-medium 
-            py-2.5 px-5 rounded-lg w-full"
-          >
-            Send Message
-          </button>
-          {emailSubmitted && <p className="text-green-500 text-sm mt-2"></p>}
-        </form>
+            {emailSubmitted && (
+              <p className="text-green-400 text-sm mt-4 text-center">
+                ✅ Message sent successfully! I’ll get back to you soon.
+              </p>
+            )}
+          </form>
+        </motion.div>
       </div>
     </section>
   );

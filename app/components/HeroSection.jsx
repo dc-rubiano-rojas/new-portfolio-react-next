@@ -1,87 +1,94 @@
 "use client";
-import React, { useLayoutEffect, useRef } from "react";
+import React from "react";
 import Image from "next/image";
 import { TypeAnimation } from "react-type-animation";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 const HeroSection = () => {
   return (
-    <section className="lg:py-16">
-      <div className="grid grid-cols-1 sm:grid-cols-12">
-        <div className="col-span-8 place-self-center text-center sm:text-left justify-self-start">
-          <h1 className="text-white mb-4 text-4xl sm:text-5xl lg:text-8xl font-extrabold">
-            <span
-              id="intro-slider"
-              className="text-transparent bg-clip-text bg-gradient-to-t from-primary to-tertiary"
-            >
-              Hello, I{"'"}m {}{" "}
+    <section className="relative overflow-hidden py-20 lg:py-28 bg-gradient-to-b from-[#0b0b0b] via-[#111] to-[#1a1a1a]">
+      {/* Glow Background */}
+      <div className="absolute inset-0">
+        <div className="absolute top-1/3 -left-20 w-[400px] h-[400px] bg-purple-600/30 blur-[160px] rounded-full"></div>
+        <div className="absolute bottom-0 right-0 w-[300px] h-[300px] bg-blue-600/20 blur-[140px] rounded-full"></div>
+      </div>
+
+      <div className="container mx-auto px-6 grid grid-cols-1 sm:grid-cols-12 gap-8 relative z-10">
+        {/* Text Section */}
+        <motion.div
+          className="col-span-7 flex flex-col justify-center text-center sm:text-left"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <h1 className="text-white font-extrabold text-4xl sm:text-5xl lg:text-7xl leading-tight mb-4">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 via-blue-400 to-cyan-400">
+              Hello, I’m
             </span>
-            <br></br>
+            <br />
             <TypeAnimation
-              className="text-secondary"
               sequence={[
-                // Same substring at the start will only be typed out once, initially
                 "Daniel Rubiano",
-                1000, // wait 1s before replacing "Mice" with "Hamsters"
+                1500,
                 "Software Engineer",
-                1000,
-                "Web Developer",
-                1000,
-                "Mobile Developer",
-                1000,
+                1500,
+                "Full Stack Developer",
+                1500,
+                "AWS Cloud Enthusiast",
+                1500,
               ]}
               wrapper="span"
               speed={50}
               repeat={Infinity}
+              className="text-white"
             />
           </h1>
-          <p className="text-[#ADB7BE] text-base sm:text-lg mb-6 lg:text-xl">
-            A skilled computer programmer who handles both front-end and
-            back-end coding. Passionate full stack developer creating seamless
-            digital experiences with a commitment to continual growth.
-          </p>
-          <div>
-            <button className="px-6 py-3 w-full sm:w-fit rounded-full mr-4 bg-secondary hover:bg-tertiary text-white">
-              Hire me!
-            </button>
-            <button className="px-1 py-1 w-full sm:w-fit rounded-full bg-secondary hover:bg-slate-800 text-white mt-3">
-              <Link
-                href="https://drive.google.com/file/d/1pJSdclkB6wB0HCh22kNYeK51P5Nw6nic/view?usp=sharing"
-                passHref
-                className="block bg-[#121212] hover:bg-slate-800 rounded-full px-5 py-2"
-              >
-                Download CV
-              </Link>
-            </button>
-          </div>
-        </div>
 
-        <div className="col-span-4 place-self-center mt-4 lg:mt-0">
-          <div className="rounded-full bg-[#181818] w-[250px] h-[250px] lg:w-[400px] lg:h-[400px] relative">
-            <Image
-              src="/images/dev-portfolio-hero-img.png"
-              alt="Hero image"
-              className="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-              width={300}
-              height={300}
-            />
+          <p className="text-gray-300 text-base sm:text-lg lg:text-xl mb-8 max-w-2xl">
+            I build scalable, performant, and elegant solutions — from intuitive
+            frontends to reliable backend architectures. Passionate about
+            innovation, cloud technologies, and creating digital experiences
+            that truly connect.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
+            <Link
+              href="#contact"
+              className="px-8 py-3 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold hover:opacity-90 transition duration-300 shadow-lg shadow-purple-500/30"
+            >
+              Hire me!
+            </Link>
+
+            <Link
+              href="https://drive.google.com/file/d/1pJSdclkB6wB0HCh22kNYeK51P5Nw6nic/view?usp=sharing"
+              passHref
+              className="px-8 py-3 rounded-full border border-gray-500 text-gray-200 font-semibold hover:bg-gray-800/80 transition duration-300"
+            >
+              Download CV
+            </Link>
           </div>
-        </div>
-        {/*         <div
-          style={{
-            position: "absolute",
-            top: 0,
-            bottom: 0,
-            right: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            background: "#2c3e50",
-            zIndex: 0,
-            transform: "skewY(-3deg)",
-            transformOrigin: "top left",
-          }}
-        ></div> */}
+        </motion.div>
+
+        {/* Image Section */}
+        <motion.div
+          className="col-span-5 flex justify-center sm:justify-end mt-10 sm:mt-0"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          <div className="relative w-[260px] h-[260px] lg:w-[380px] lg:h-[380px] rounded-full bg-gradient-to-tr from-purple-600 to-blue-500 p-[2px]">
+            <div className="w-full h-full rounded-full bg-[#0b0b0b] flex items-center justify-center overflow-hidden">
+              <Image
+                src="/images/dev-portfolio-hero-img.png"
+                alt="Hero image"
+                width={300}
+                height={300}
+                className="object-cover rounded-full hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

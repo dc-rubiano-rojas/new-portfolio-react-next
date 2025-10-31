@@ -4,71 +4,73 @@ import Link from "next/link";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { MdClose } from "react-icons/md";
 import Image from "next/image";
-
 import NavLink from "./NavLink";
 import MenuOverlay from "./MenuOverlay";
 
 const navLinks = [
-  {
-    title: "About",
-    path: "#about",
-  },
-  {
-    title: "Projects",
-    path: "#projects",
-  },
-  {
-    title: "Contact",
-    path: "#contact",
-  },
+  { title: "About", path: "#about" },
+  { title: "Projects", path: "#projects" },
+  { title: "Contact", path: "#contact" },
 ];
 
 const NavBar = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
 
   return (
-    <nav className="fixed mx-auto border border-[#33353f] top-0 left-0 right-0 z-10 bg-[#121212] bg-opacity-100">
-      <div className="flex container lg:py-4 flex-wrap items-center justify-between mx-auto px-4 py-2">
-        <Link
-          href={"/"}
-          className="text-2xl md:text-5xl text-white font-semibold"
-        >
-          <Image src="/images/dc-logo.png" width={68} height={68} alt='logo'/>
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 
+      backdrop-blur-lg bg-[#0b0b0b]/80 border-b border-gray-800
+      transition-all duration-300 ease-in-out`}
+    >
+      <div className="flex container items-center justify-between mx-auto px-6 py-3">
+        {/* Logo */}
+        <Link href="/" className="flex items-center gap-2">
+          <Image
+            src="/images/dc-logo.png"
+            width={52}
+            height={52}
+            alt="logo"
+            className="rounded-full hover:scale-105 transition-transform duration-300"
+          />
+          <span className="hidden sm:block text-white text-xl font-semibold tracking-wide">
+            Daniel Rubiano
+          </span>
         </Link>
 
-        <div className="mobile-menu block md:hidden">
-          {!navbarOpen ? (
-            <button
-              className="flex 
-              items-center px-3 py-2 border rounded 
-              border-slate-200 text-slate-200 hover:text-white hover:border-white"
-              onClick={() => setNavbarOpen(true)}
-            >
-              <GiHamburgerMenu className="h-5 w-5" />
-            </button>
-          ) : (
-            <button
-              className="flex 
-              items-center px-3 py-2 border rounded 
-              border-slate-200 text-slate-200 hover:text-white hover:border-white"
-              onClick={() => setNavbarOpen(false)}
-            >
-              <MdClose className="h-5 w-5" />
-            </button>
-          )}
+        {/* Desktop Menu */}
+        <div className="hidden md:flex space-x-10">
+          {navLinks.map((link) => (
+            <NavLink
+              key={link.title}
+              href={link.path}
+              title={link.title}
+              className="text-gray-300 hover:text-white hover:underline underline-offset-8 decoration-purple-500 transition-all duration-300"
+            />
+          ))}
         </div>
 
-        <div className="menu hidden md:block md:w-auto" id="navbar">
-          <ul className="flex p-4 md:p-0 md:flex-row md:space-x-8 mt-0">
-            {navLinks.map((link, index) => (
-              <li key={index}>
-                <NavLink href={link.path} title={link.title} />
-              </li>
-            ))}
-          </ul>
+        {/* Mobile Button */}
+        <div className="block md:hidden">
+          <button
+            onClick={() => setNavbarOpen(!navbarOpen)}
+            className="p-2 text-gray-300 rounded-md border border-gray-600 hover:text-white hover:border-white transition-all"
+          >
+            {navbarOpen ? (
+              <MdClose className="h-6 w-6" />
+            ) : (
+              <GiHamburgerMenu className="h-6 w-6" />
+            )}
+          </button>
         </div>
       </div>
-      {navbarOpen ? <MenuOverlay links={navLinks} /> : null}
+
+      {/* Mobile Overlay */}
+      {navbarOpen && (
+        <MenuOverlay
+          links={navLinks}
+          className="animate-slideDown bg-[#0b0b0b]/95 backdrop-blur-md"
+        />
+      )}
     </nav>
   );
 };
