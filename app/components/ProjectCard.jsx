@@ -8,13 +8,15 @@ import { motion } from "framer-motion";
 const ProjectCard = ({ imgUrl, title, description, gitUrl, previewUrl }) => {
   return (
     <motion.div
-      className="group bg-[#141414]/70 border border-gray-800 rounded-2xl overflow-hidden backdrop-blur-sm hover:shadow-lg hover:shadow-purple-500/20 transition-all duration-500"
+      className="group bg-[#141414]/70 border border-gray-800 rounded-2xl overflow-hidden backdrop-blur-sm 
+      hover:shadow-lg hover:shadow-purple-500/20 transition-all duration-500 
+      flex flex-col justify-between h-full min-h-[420px]"  // 👈 altura consistente
       whileHover={{ scale: 1.02, rotateX: 2, rotateY: -2 }}
       transition={{ type: "spring", stiffness: 100, damping: 10 }}
     >
       {/* Image */}
       <div
-        className="relative h-52 md:h-64 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+        className="relative h-52 md:h-64 bg-cover bg-center transition-transform duration-700 group-hover:scale-105 flex-shrink-0"
         style={{ backgroundImage: `url(${imgUrl})` }}
       >
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center gap-4">
@@ -36,9 +38,15 @@ const ProjectCard = ({ imgUrl, title, description, gitUrl, previewUrl }) => {
       </div>
 
       {/* Info */}
-      <div className="p-6">
-        <h5 className="text-white font-semibold text-xl mb-2">{title}</h5>
-        <p className="text-gray-400 text-sm leading-relaxed">{description}</p>
+      <div className="p-6 flex flex-col justify-between flex-grow">
+        <div>
+          <h5 className="text-white font-semibold text-xl mb-2 line-clamp-1">
+            {title}
+          </h5>
+          <p className="text-gray-400 text-sm leading-relaxed line-clamp-3">
+            {description}
+          </p>
+        </div>
       </div>
     </motion.div>
   );
