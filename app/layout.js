@@ -30,7 +30,7 @@ export const metadata = {
     siteName: "Daniel Rubiano Portfolio",
     images: [
       {
-        url: "/images/og-image.png",
+        url: "/images/dc-logo.png",
         width: 1200,
         height: 630,
         alt: "Daniel Rubiano Portfolio Preview",
