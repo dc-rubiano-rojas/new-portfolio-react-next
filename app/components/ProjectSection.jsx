@@ -1,8 +1,7 @@
 "use client";
 import React, { useState } from "react";
-import { motion } from "framer-motion";
-import ProjectCard from "./ProjectCard";
-import ProjectTag from "./ProjectTag";
+
+import CompanyLogos from "./CompanyLogos";
 
 const projectsData = [
   {
@@ -73,71 +72,17 @@ const ProjectSection = () => {
   );
 
   return (
-    <section
-      id="projects"
-      className="relative bg-[#0b0b0b] py-24 lg:py-28 overflow-hidden"
-    >
-      {/* Background blur lights */}
-      <div className="absolute inset-0">
-        <div className="absolute top-1/3 left-1/4 w-[400px] h-[400px] bg-purple-600/20 blur-[180px] rounded-full"></div>
-        <div className="absolute bottom-0 right-0 w-[300px] h-[300px] bg-blue-600/20 blur-[160px] rounded-full"></div>
-      </div>
+    <>
+      <section
+        id="projects"
+        className="relative bg-[#0b0b0b] py-10 lg:py-10 overflow-hidden"
+      >
+        {/* ...contenido de proyectos */}
+      </section>
 
-      <div className="container relative mx-auto px-6">
-        <motion.h2
-          className="text-center text-4xl sm:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 via-blue-400 to-cyan-400 mb-12"
-          initial={{ opacity: 0, y: -30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          Projects
-        </motion.h2>
-
-        {/* Filter Tags */}
-        <motion.div
-          className="flex flex-wrap justify-center gap-4 mb-12"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
-        >
-          {["All", "Web", "Mobile"].map((t) => (
-            <ProjectTag
-              key={t}
-              onClick={setTag}
-              name={t}
-              isSelected={tag === t}
-            />
-          ))}
-        </motion.div>
-
-        {/* Projects grid */}
-        <motion.div
-          className="grid md:grid-cols-3 gap-8 md:gap-12"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.3, duration: 1 }}
-        >
-          {filteredProjects.map((project, index) => (
-            <motion.div
-              key={project.id}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              viewport={{ once: true }}
-            >
-              <ProjectCard
-                title={project.title}
-                description={project.description}
-                imgUrl={project.image}
-                gitUrl={project.gitUrl}
-                previewUrl={project.previewUrl}
-              />
-            </motion.div>
-          ))}
-        </motion.div>
-      </div>
-    </section>
+      {/* Logos de compañías */}
+      <CompanyLogos />
+    </>
   );
 };
 

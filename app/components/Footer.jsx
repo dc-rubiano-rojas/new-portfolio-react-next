@@ -5,7 +5,7 @@ import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa6";
 
 const Footer = () => {
   return (
-    <footer className="relative bg-[#0b0b0b] border-t border-gray-800 text-gray-400 py-10 overflow-hidden">
+    <footer className="relative bg-[#0b0b0b] border-t border-gray-800 text-gray-400 py-10 pt-2 overflow-hidden">
       {/* Glow background */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-gradient-to-b from-purple-600/20 to-transparent blur-[150px]" />
 
