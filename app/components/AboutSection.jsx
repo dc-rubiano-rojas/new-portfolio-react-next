@@ -3,27 +3,19 @@ import React, { useState, useTransition } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import TabButton from "./TabButton";
+import SkillsTabs from "./SkillsTabs";
 
 const TAB_DATA = [
   {
     title: "Skills",
     id: "skills",
-    content: (
-      <ul className="list-none space-y-2">
-        <li>⚡ JavaScript / TypeScript</li>
-        <li>⚙️ Node.js / NestJS</li>
-        <li>⚛️ React / Next.js / React Native</li>
-        <li>☁️ AWS (Lambda, API Gateway, DynamoDB)</li>
-        <li>🧱 PostgreSQL / MongoDB</li>
-        <li>🚀 Terraform / CI/CD (Jenkins, CircleCI)</li>
-      </ul>
-    ),
+    content: <SkillsTabs />,
   },
   {
     title: "Education",
     id: "education",
     content: (
-      <ul className="list-none space-y-2">
+      <ul className="list-none space-y-2 text-gray-300">
         <li>🎓 Master’s in Artificial Intelligence — Universidad de La Salle</li>
         <li>💻 Specialization in Software Engineering — Universidad Antonio Nariño</li>
         <li>🎵 Bachelor’s in Sound Engineering — Universidad San Buenaventura</li>
@@ -34,15 +26,16 @@ const TAB_DATA = [
     title: "Certifications",
     id: "certifications",
     content: (
-      <ul className="list-none space-y-2">
+      <ul className="list-none space-y-2 text-gray-300">
         <li>🏅 DevOps with AWS (Smart Data, 2023)</li>
-        <li>🪙 Ethereum Developer Professional</li>
         <li>🧠 Master in Node.js / Master in JavaScript (Udemy)</li>
+        <li>🪪 Ethereum Developer Professional</li>
         <li>💻 MTA: Software Development Fundamentals</li>
       </ul>
     ),
   },
 ];
+
 
 const AboutSection = () => {
   const [tab, setTab] = useState("skills");
@@ -109,11 +102,30 @@ const AboutSection = () => {
           </h2>
 
           <p className="text-gray-300 text-base md:text-lg leading-relaxed">
-            I’m a passionate <strong>Full Stack Developer</strong> with solid
-            experience designing and maintaining scalable applications on AWS.
-            I love building modern, cloud-powered solutions that merge
-            functionality and creativity to deliver exceptional user
-            experiences.
+            I’m a <strong>Full-Stack & AI Engineer</strong> with more than 5
+            years of experience designing, developing, and deploying scalable
+            applications across industries like retail, banking, and e-commerce.
+            I specialize in
+            <strong>backend architectures</strong>,{" "}
+            <strong>cloud-native systems</strong>, and{" "}
+            <strong>modern front-end development</strong> using technologies
+            such as Node.js, Python, React, Next.js, and AWS.
+            <br />
+            <br />
+            I’m currently pursuing a{" "}
+            <strong>Master’s in Artificial Intelligence</strong>, where I work
+            on projects integrating{" "}
+            <strong>
+              LLMs, speech emotion recognition, and image classification models
+            </strong>{" "}
+            using OpenAI, Groq, HuggingFace, and Azure Custom Vision. I enjoy
+            building end-to-end solutions that blend engineering, machine
+            learning, and clean user experience.
+            <br />
+            <br />
+            My work is driven by scalability, performance, and technical
+            excellence — always aiming to deliver reliable systems, clear
+            architecture, and impactful digital products.
           </p>
 
           {/* Tabs */}
