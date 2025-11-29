@@ -35,7 +35,7 @@ const Footer = () => {
             <FaGithub className="text-2xl" />
           </a>
           <a
-            href="https://www.linkedin.com/in/danielc-rubiano-rojas/"
+            href="https://www.linkedin.com/in/daniel-c-rubiano-rojas/"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-white hover:scale-110 transition-all duration-300"
